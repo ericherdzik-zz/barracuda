@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Assert complete runtime environment
+printf "%s\n" "ETHMINER_FARM_RECHECK=${ETHMINER_FARM_RECHECK:?}"
+printf "%s\n" "ETHMINER_STRATUM=${ETHMINER_STRATUM:?}"
+printf "%s\n" "ETHMINER_STRATUM_BACKUP=${ETHMINER_STRATUM_BACKUP:?}"
+printf "%s\n" "ETHMINER_STRATUM_CREDENTIALS=${ETHMINER_STRATUM_CREDENTIALS:?}"
+printf "%s\n" "GPU_FORCE_64BIT_PTR=${GPU_FORCE_64BIT_PTR:?}"
+printf "%s\n" "GPU_MAX_ALLOC_PERCENT=${GPU_MAX_ALLOC_PERCENT:?}"
+printf "%s\n" "GPU_MAX_HEAP_SIZE=${GPU_MAX_HEAP_SIZE:?}"
+printf "%s\n" "GPU_SINGLE_ALLOC_PERCENT=${GPU_SINGLE_ALLOC_PERCENT:?}"
+printf "%s\n" "GPU_USE_SYNC_OBJECTS=${GPU_USE_SYNC_OBJECTS:?}"
+
+# Run ethminer
+/bin/ethminer \
+    --cuda \
+    --farm-recheck $ETHMINER_FARM_RECHECK \
+    -S $ETHMINER_STRATUM \
+    -FS $ETHMINER_STRATUM_BACKUP \
+    -O $ETHMINER_STRATUM_CREDENTIALS
