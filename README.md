@@ -10,7 +10,7 @@ The purpose of this project is to:
 
 ## Architecture
 
-![Barracuda](doc/Barracuda.png)
+![Barracuda](doc/Barracuda-Architecture.png)
 
 ## Using Barracuda Today
 
