@@ -151,6 +151,7 @@ user@host:~$ lspci -k | grep -A2 VGA
 
 # REQUIRED: Install Docker Community Edition
 # Additional information can be found at https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
+# See for info re: version lock - https://github.com/NVIDIA/nvidia-docker/issues/540
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
     | sudo apt-key add -
@@ -161,7 +162,7 @@ sudo add-apt-repository \
    stable"
 
 sudo apt-get update
-sudo apt-get -y --no-install-recommends install docker-ce
+sudo apt-get -y --no-install-recommends install docker-ce=17.09.1~ce-0~ubuntu
 ```
 
 ### 4. Install NVIDIA-Docker
