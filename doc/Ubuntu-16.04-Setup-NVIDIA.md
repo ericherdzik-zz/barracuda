@@ -161,7 +161,7 @@ sudo add-apt-repository \
    stable"
 
 sudo apt-get update
-sudo apt-get -y --no-install-recommends docker-ce
+sudo apt-get -y --no-install-recommends install docker-ce
 ```
 
 ### 4. Install NVIDIA-Docker
