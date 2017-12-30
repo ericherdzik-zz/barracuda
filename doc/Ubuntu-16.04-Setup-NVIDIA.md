@@ -62,53 +62,13 @@ sudo update-grub
 #!/bin/bash
 
 # REQUIRED: Install NVIDIA CUDA drivers
-# Additional information can be found at http://developer.download.nvidia.com/compute/cuda/9.0/Prod/docs/sidebar/CUDA_Installation_Guide_Linux.pdf
+# Additional information can be found at http://developer.download.nvidia.com/compute/cuda/9.1/Prod/docs/sidebar/CUDA_Installation_Guide_Linux.pdf
 
 curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
 sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends cuda
-```
-
-After installing the CUDA drivers, if you do not wish to boot into a graphical user interface, you will need to disable the `lightdm` service.
-
-```bash
-#!/bin/bash
-
-# OPTIONAL: Disable `lightdm` service
-
-sudo systemctl disable lightdm.service
-```
-
-Although not required, I suggest disabling the `snd_hda_intel` kernel module unless you have a legitimate need for the audio driver.
-
-```bash
-#!/bin/bash
-
-# OPTIONAL: disable `snd_hda_intel` kernel module
-# Do not do this if you need audio!
-
-echo -e "blacklist snd_hda_intel" \
-    | sudo tee /etc/modprobe.d/blacklist-snd_hda_intel.conf \
-    > /dev/null
-
-sudo update-initramfs -u
-```
-
-If you choose to install Cuda via [runfile](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#runfile) you will also need to disable Nouveau.
-
-```bash
-#!/bin/bash
-
-# OPTIONAL: disable `nouveau` kernel module
-# This is only required if you install Cuda via runfile
-
-echo -e "blacklist nouveau\noptions nouveau modeset=0" \
-    | sudo tee /etc/modprobe.d/blacklist-nouveau.conf \
-    > /dev/null
-
-sudo update-initramfs -u
+sudo apt-get install -y cuda
 ```
 
 Once completing NVIDIA CUDA driver installation, you will need to reboot your system. Once the system comes back up, you must verify all VGA PCI devices loaded with the correct driver, i.e. `nvidia`. Do not proceed unless all devices are using the correct driver.
