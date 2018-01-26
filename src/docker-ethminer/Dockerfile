@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     wget
 
-RUN wget --quiet ${ETHMINER_EXEC_URL}
+RUN wget --quiet -O ethminer.tar.gz ${ETHMINER_EXEC_URL}
 
 ####################
 # END: Stage 0     #
@@ -24,8 +24,8 @@ RUN wget --quiet ${ETHMINER_EXEC_URL}
 
 FROM nvidia/cuda:9.0-base
 
-COPY --from=0 ethminer-0.12.0-Linux.tar.gz .
-RUN tar -zxf ethminer-0.12.0-Linux.tar.gz
+COPY --from=0 ethminer.tar.gz .
+RUN tar -zxf ethminer.tar.gz
 
 COPY bin/start /bin/start
 RUN chmod +x /bin/start
