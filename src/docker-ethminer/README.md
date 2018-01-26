@@ -12,7 +12,7 @@ This image was built and tested with Docker version `17.09.0-ce` and requires th
 #!/bin/bash
 
 sudo docker build \
-    --build-arg ETHMINER_EXEC_URL=https://github.com/ethereum-mining/ethminer/releases/download/v0.12.0/ethminer-0.12.0-Linux.tar.gz \
+    --build-arg ETHMINER_EXEC_URL=https://github.com/ethereum-mining/ethminer/releases/download/v0.13.0/ethminer-0.13.0-Linux.tar.gz \
     -t ethminer \
     .
 ```
