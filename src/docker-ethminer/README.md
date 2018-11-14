@@ -11,10 +11,7 @@ This image was built and tested with Docker version `17.09.0-ce` and requires th
 ```bash
 #!/bin/bash
 
-sudo docker build \
-    --build-arg ETHMINER_URL=https://github.com/ethereum-mining/ethminer/releases/download/v0.16.1/ethminer-0.16.1-linux-x86_64.tar.gz \
-    -t ethminer \
-    .
+sudo docker build -t ethminer .
 ```
 
 #### Build Parameters
