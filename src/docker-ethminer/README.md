@@ -12,7 +12,7 @@ This image was built and tested with Docker version `17.09.0-ce` and requires th
 #!/bin/bash
 
 sudo docker build \
-    --build-arg ETHMINER_EXEC_URL=https://github.com/ethereum-mining/ethminer/releases/download/v0.13.0/ethminer-0.13.0-Linux.tar.gz \
+    --build-arg ETHMINER_URL=https://github.com/ethereum-mining/ethminer/releases/download/v0.16.1/ethminer-0.16.1-linux-x86_64.tar.gz \
     -t ethminer \
     .
 ```
@@ -23,7 +23,7 @@ The following table enumerates all supported build parameters and their default 
 
 | Parameter | Required? | Default |
 |-----------|-----------|---------|
-|`ETHMINER_EXEC_URL`|yes||
+|`ETHMINER_URL`|yes||
 
 ### Run
 
@@ -31,8 +31,7 @@ The following table enumerates all supported build parameters and their default 
 #!/bin/bash
 
 sudo docker run \
-    --env ETHMINER_STRATUM_CREDENTIALS=0xA29d0014b84400d1fCF3480401Dc2A0251edd20B.example \
-    --runtime=nvidia \
+    --env POOL="stratumss://0xA29d0014b84400d1fCF3480401Dc2A0251edd20B.example@us1.ethermine.org:5555"
     ethminer
 ```
 
@@ -40,15 +39,7 @@ The following table enumerates all supported runtime parameters and their defaul
 
 | Parameter | Required? | Default |
 |-----------|-----------|---------|
-|`ETHMINER_FARM_RECHECK`|no|200|
-|`ETHMINER_STRATUM`|no|us1.ethermine.org:4444|
-|`ETHMINER_STRATUM_BACKUP`|no|us2.ethermine.org:4444|
-|`ETHMINER_STRATUM_CREDENTIALS`|yes||
-|`GPU_FORCE_64BIT_PTR`|no|0|
-|`GPU_MAX_ALLOC_PERCENT`|no|100|
-|`GPU_MAX_HEAP_SIZE`|no|100|
-|`GPU_SINGLE_ALLOC_PERCENT`|no|100|
-|`GPU_USE_SYNC_OBJECTS`|no|1|
+|`POOL`|no|stratumss://0xA29d0014b84400d1fCF3480401Dc2A0251edd20B.example@us1.ethermine.org:5555|
 
 ## References
 
