@@ -4,15 +4,11 @@
 
 FROM ubuntu:16.04
 
-# Build params
-ARG ETHMINER_URL
-RUN test -n "${ETHMINER_URL}"
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     wget
 
-RUN wget --quiet -O ethminer.tar.gz ${ETHMINER_URL}
+RUN wget --quiet -O ethminer.tar.gz https://github.com/ethereum-mining/ethminer/releases/download/v0.16.1/ethminer-0.16.1-linux-x86_64.tar.gz
 
 ####################
 # END: Stage 0     #
