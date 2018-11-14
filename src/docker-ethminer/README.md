@@ -23,7 +23,7 @@ Note: Be sure to build the Docker image within the `docker-ethminer` directory.
 
 sudo docker run \
     --runtime=nvidia \
-    --env POOL="stratumss://0xA29d0014b84400d1fCF3480401Dc2A0251edd20B.default@us1.ethermine.org:5555"
+    --env POOL="stratumss://0xA29d0014b84400d1fCF3480401Dc2A0251edd20B.default@us1.ethermine.org:5555" \
     ethminer
 ```
 
