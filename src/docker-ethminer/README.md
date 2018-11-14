@@ -9,23 +9,17 @@ This image was built and tested with Docker version `17.09.0-ce` and requires th
 ### Build
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 sudo docker build -t ethminer .
 ```
 
-#### Build Parameters
-
-The following table enumerates all supported build parameters and their default values. Required parameters do not have defaults.
-
-| Parameter | Required? | Default |
-|-----------|-----------|---------|
-|`ETHMINER_URL`|yes||
+Note: Be sure to build the Docker image within the `docker-ethminer` directory.
 
 ### Run
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 sudo docker run \
     --runtime=nvidia \
