@@ -31,7 +31,7 @@ The following table enumerates all supported build parameters and their default 
 #!/bin/bash
 
 sudo docker run \
-    --env POOL="stratumss://0xA29d0014b84400d1fCF3480401Dc2A0251edd20B.example@us1.ethermine.org:5555"
+    --env POOL="stratumss://0xA29d0014b84400d1fCF3480401Dc2A0251edd20B.default@us1.ethermine.org:5555"
     ethminer
 ```
 
@@ -39,7 +39,7 @@ The following table enumerates all supported runtime parameters and their defaul
 
 | Parameter | Required? | Default |
 |-----------|-----------|---------|
-|`POOL`|no|stratumss://0xA29d0014b84400d1fCF3480401Dc2A0251edd20B.example@us1.ethermine.org:5555|
+|`POOL`|no|stratumss://0xA29d0014b84400d1fCF3480401Dc2A0251edd20B.default@us1.ethermine.org:5555|
 
 ## References
 
